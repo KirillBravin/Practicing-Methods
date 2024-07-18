@@ -22,6 +22,12 @@
 
             Console.WriteLine("Input hours and numbers");
             IsInputValid(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
+
+            Console.Write("Enter a three-digit number (or not): ");
+            IsNumberAThreeDigit(int.Parse(Console.ReadLine()));
+
+            Console.Write("Enter a character (can be uppercase): ");
+            IsUpperCase(char.Parse(Console.ReadLine()));
         }
 
 
@@ -267,6 +273,24 @@
                 Console.WriteLine("Valid input");
             }
             else Console.WriteLine("Invalid input");
+        }
+
+        public static void IsNumberAThreeDigit(int number)
+        {
+            if (number >= 100 && number <= 999)
+            {
+                Console.WriteLine("A three-digit number");
+            }
+            else Console.WriteLine("Not a three-digit number");
+        }
+
+        public static void IsUpperCase (char character)
+        {
+            if (character == Char.ToUpper(character))
+            {
+                Console.WriteLine("Capital");
+            }
+            else Console.WriteLine("Non-uppercase");
         }
     }
 }
