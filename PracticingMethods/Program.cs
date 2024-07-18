@@ -20,7 +20,7 @@
             Console.Write("Please insert a character or a number: ");
             NumberOrCharacter(char.Parse(Console.ReadLine()));
 
-            Console.WriteLine("Input hours and numbers");
+            Console.WriteLine("Input hours and hours");
             IsInputValid(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
 
             Console.Write("Enter a three-digit number (or not): ");
