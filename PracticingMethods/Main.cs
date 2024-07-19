@@ -8,7 +8,7 @@
             //CSharpBasics.Basics();
 
             // Arrays intro
-            //LessonWithArrays.ArraysMain();
+            LessonWithArrays.ArraysMain();
 
             //Extra exercises with arrays
             ExtraArrayExercises.ExtraArraysMain();
