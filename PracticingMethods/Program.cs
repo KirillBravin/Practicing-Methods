@@ -88,9 +88,9 @@
             }
         }
 
-        // I did this one my way and it workd, but the method was very big with the switch method
+        // I did this one my way and it worked, but it was too big with the switch method
         // So I decided to find out how I can optimize it and checked stackoverlow and chatGPT for help and used this method
-        // Will make a note for it to use it in the future :)
+        // Will make a note for it to use it in the future
         public static void IsVowelOrConsonant(char character)
         {
             HashSet<char> vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
