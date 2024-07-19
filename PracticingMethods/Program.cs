@@ -12,7 +12,8 @@
             FindBiggestNumber(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
 
             Console.Write("Enter a single character to check if it is a vowel or a consonant: ");
-            IsVowelOrConsonant(char.Parse(Console.ReadLine()));
+            char character = Console.ReadLine()[0];
+            IsVowelOrConsonant(character);
 
             Console.WriteLine("Leap year checker. Is it or is it not, let's find out!");
             Console.Write("Please enter a year: ");
@@ -87,88 +88,18 @@
             }
         }
 
+        // I did this one my way and it workd, but the method was very big with the switch method
+        // So I decided to find out how I can optimize it and checked stackoverlow and chatGPT for help and used this method
+        // Will make a note for it to use it in the future :)
         public static void IsVowelOrConsonant(char character)
         {
-            switch (character)
+            HashSet<char> vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
+            if (vowels.Contains(character))
             {
-                case 'a':
-                    Console.WriteLine("This letter is a vowel");
-                    break;
-                case 'b':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'c':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'd':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'e':
-                    Console.WriteLine("This letter is a vowel");
-                    break;
-                case 'f':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'g':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'h':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'i':
-                    Console.WriteLine("This letter is a vowel");
-                    break;
-                case 'j':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'k':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'l':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'm':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'n':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'o':
-                    Console.WriteLine("This letter is a vowel");
-                    break;
-                case 'p':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'q':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'r':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 's':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 't':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'u':
-                    Console.WriteLine("This letter is a vowel");
-                    break;
-                case 'v':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'w':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'x':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'y':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
-                case 'z':
-                    Console.WriteLine("This letter is a consonant");
-                    break;
+                Console.WriteLine("This letter is a vowel");
+            } else
+            {
+                Console.WriteLine("This letter is a consonant");
             }
         }
 
