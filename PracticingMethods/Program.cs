@@ -4,6 +4,7 @@
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Is the number positive or negative?");
             Console.Write("Input a number: ");
             IsPositiveOrNegative(int.Parse(Console.ReadLine()));
 
@@ -13,21 +14,44 @@
             Console.Write("Enter a single character to check if it is a vowel or a consonant: ");
             IsVowelOrConsonant(char.Parse(Console.ReadLine()));
 
-            Console.WriteLine("NOTE: This will check if the year is a leap year or not, it only counts years from 1944 to 2040");
+            Console.WriteLine("Leap year checker. Is it or is it not, let's find out!");
             Console.Write("Please enter a year: ");
             IsLeapYear(int.Parse(Console.ReadLine()));
 
+            Console.WriteLine("Lets check if you input a character or a number.");
             Console.Write("Please insert a character or a number: ");
             NumberOrCharacter(char.Parse(Console.ReadLine()));
 
-            Console.WriteLine("Input hours and hours");
+            Console.WriteLine("Input hours and minutes");
             IsInputValid(int.Parse(Console.ReadLine()), int.Parse(Console.ReadLine()));
 
+            Console.WriteLine("Lets check if you enter a three-digit number or not.");
             Console.Write("Enter a three-digit number (or not): ");
             IsNumberAThreeDigit(int.Parse(Console.ReadLine()));
 
+            Console.WriteLine("Lets check if character you enter is an uppercase character or not");
             Console.Write("Enter a character (can be uppercase): ");
             IsUpperCase(char.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Lets find out the perimetere of a square.");
+            Console.Write("Insert side length: ");
+            SquarePerimeter(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Lets find out an area of a triangle.");
+            Console.WriteLine("Please enter length and height to calculate the area of a triangle.");
+            TriangleArea(double.Parse(Console.ReadLine()), double.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Lets find out an area of a circle.");
+            Console.Write("Please insert circle's radius: ");
+            CircleArea(double.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Lets find out the volume of a cube.");
+            Console.Write("Please enter the length of a cube side: ");
+            CubeVolume(int.Parse(Console.ReadLine()));
+
+            Console.WriteLine("Translating Celsius to Fahrenheit.");
+            Console.Write("Enter the Celsius temperature: ");
+            CelciusToFahrenheit(int.Parse(Console.ReadLine()));
         }
 
 
@@ -150,111 +174,11 @@
 
         public static void IsLeapYear(int year)
         {
-            if (year < 1944 || year > 2040)
+            if ((year % 4) == 0)
             {
-                Console.WriteLine("Error, please enter a year from 1944 to 2040");
+                Console.WriteLine($"{year} is a leap year!");
             }
-            else if (year == 1944)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1948)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1952)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1956)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1960)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1964)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1968)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1972)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1976)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1980)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1984)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1988)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1992)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 1996)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2000)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2004)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2008)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2012)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2016)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2020)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2024)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2028)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2032)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2036)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else if (year == 2040)
-            {
-                Console.WriteLine("This is a leap year!");
-            }
-            else Console.WriteLine("This is not a leap year!");
+            else Console.WriteLine($"{year} is not a leap year!");
         }
 
         public static void NumberOrCharacter(char characterOrNumber)
@@ -284,13 +208,45 @@
             else Console.WriteLine("Not a three-digit number");
         }
 
-        public static void IsUpperCase (char character)
+        public static void IsUpperCase(char character)
         {
             if (character == Char.ToUpper(character))
             {
                 Console.WriteLine("Capital");
             }
             else Console.WriteLine("Non-uppercase");
+        }
+
+        public static void SquarePerimeter(int side)
+        {
+            Console.WriteLine($"Perimeter square is: {side *= 4}");
+        }
+
+        public static void TriangleArea(double length, double height)
+        {
+            Console.WriteLine($"Area of a triangle is: {0.5 * height * length}");
+        }
+
+        // I hope I interpreted this one correctly :)
+        public static void CircleArea(double r)
+        {
+            Console.WriteLine($"Circle area is: {Math.Round(3.14 * r * r, 2)}");
+            CirclePerimeter(r);
+        }
+
+        public static void CirclePerimeter(double r)
+        {
+            Console.WriteLine($"Circle perimeter is: {Math.Round(2 * 3.14 * r, 2)}");
+        }
+
+        public static void CubeVolume(int side)
+        {
+            Console.WriteLine($"Cube volume is: {Math.Pow(side, 3)}");
+        }
+
+        public static void CelciusToFahrenheit(int celsiusTemp)
+        {
+            Console.WriteLine($"Fahrenheit: {celsiusTemp * 9 / 5 + 32}°F");
         }
     }
 }
