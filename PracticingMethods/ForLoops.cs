@@ -24,6 +24,10 @@ public class Loops
 		//FindingLongestSequence();
 		//IsSumOfPairsEven();
 		//ReversePartOfAnArray();
+		//FindingSecondSmallestNumber();
+		//FindMostRepeatedElement();
+		FindUniqueElements();
+
     }
 
 	// For loops
@@ -305,7 +309,8 @@ public class Loops
 			i++;
 		}
 
-		if (currentLength > maxLength) {
+		if (currentLength > maxLength)
+		{
 			maxLength = currentLength;
 			LongestStartIndex = startIndex;
 		}
@@ -326,63 +331,146 @@ public class Loops
 
 		for (int i = 0; i < array.Length; i++)
 		{
-			for (int j = i + 1; j < array.Length; j++) {
+			for (int j = i + 1; j < array.Length; j++)
+			{
 				if ((array[i] + array[j]) % 2 == 0)
 				{
 					Console.WriteLine($"{array[i]} {array[j]}");
-				} 
+				}
 			}
 		}
 	}
 
-    // I am not sure if I did this correctly, as the task gives example that it should return
-    // [1, 2, 7, 6, 5, 4, 4, 3, 8, 9], but I have [1, 2, 7, 6, 5, 4, 3, 8, 9].
-    public static void ReversePartOfAnArray()
+	// I am not sure if I did this correctly, as the task gives example that it should return
+	// [1, 2, 7, 6, 5, 4, 4, 3, 8, 9], but I have [1, 2, 7, 6, 5, 4, 3, 8, 9].
+	public static void ReversePartOfAnArray()
 	{
-		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		int[] reversedArray = new int[array.Length];
 		int firstNumber;
 		int secondNumber;
 
 		int i = 0;
 
-        Console.WriteLine("Please enter first number: ");
-        while (!int.TryParse(Console.ReadLine(), out firstNumber))
-        {
-            Console.WriteLine("Invalid input.");
-        };
+		Console.WriteLine("Please enter first number: ");
+		while (!int.TryParse(Console.ReadLine(), out firstNumber))
+		{
+			Console.WriteLine("Invalid input.");
+		};
 
-        Console.WriteLine("Please enter first number: ");
-        while (!int.TryParse(Console.ReadLine(), out secondNumber))
-        {
-            Console.WriteLine("Invalid input.");
-        };
+		Console.WriteLine("Please enter first number: ");
+		while (!int.TryParse(Console.ReadLine(), out secondNumber))
+		{
+			Console.WriteLine("Invalid input.");
+		};
 
-        int maxReverse = secondNumber;
+		int maxReverse = secondNumber;
 
-        if (firstNumber > secondNumber)
-        {
-            Console.WriteLine("The first number should be less than or equal to second number.");
-        }
+		if (firstNumber > secondNumber)
+		{
+			Console.WriteLine("The first number should be less than or equal to second number.");
+		}
 
 		while (i < array.Length)
 		{
 			if (i >= firstNumber && i <= secondNumber)
 			{
 				reversedArray[i] = array[maxReverse];
-                maxReverse--;
+				maxReverse--;
 				if (maxReverse == 0)
 				{
 					break;
 				}
-			} else
+			}
+			else
 			{
-                reversedArray[i] = array[i];
+				reversedArray[i] = array[i];
 
-            }
+			}
 			i++;
-        }
+		}
 
 		Console.WriteLine(string.Join(", ", reversedArray));
+	}
+
+	// Extra exercises
+	public static void FindingSecondSmallestNumber()
+	{
+		int[] array = { 3, 5, 7, 2, 8, 1 };
+		int smallestNumber = array[0];
+        int smallestNumber2 = array[0];
+
+
+        for (int i = 0; i < array.Length; i++)
+		{
+			if (smallestNumber > array[i])
+			{
+				smallestNumber = array[i];
+			}
+		}
+
+        for (int i = 0; i < array.Length; i++)
+		{
+			if (smallestNumber2 > array[i] && array[i] != smallestNumber )
+			{
+				smallestNumber2 = array[i];
+			}
+		}
+
+		Console.WriteLine($"The second smallest number is: {smallestNumber2}");
     }
+
+	public static void FindMostRepeatedElement()
+	{
+		int[] array = {1, 2, 2, 3, 4, 4, 4, 5};
+		int currentTimer = 0;
+		int overallTimer = 0;
+		int currentElement = 0;
+		int overallElement = 0;
+		int i = 0;
+
+		while (i < array.Length - 1) {
+			if (array[i] == array[i + 1])
+			{
+                currentTimer++;
+                currentElement = array[i];
+
+				if (currentTimer > overallTimer)
+				{
+					overallTimer = currentTimer;
+					overallElement = currentElement;
+				}
+			}
+            else
+            {
+				currentTimer = 0;
+				currentElement = 0;
+            }
+            i++;
+		}
+
+		Console.WriteLine($"The most repeated element is: {overallElement}");
+	}
+
+	//public static void FindUniqueElements()
+	//{
+	//	int counter = 0;
+	//	int[] array = { 1, 2, 2, 3, 4, 4, 5 };
+	//	int[] array2 = new int[array.Length];
+
+	//	for (int i = 0; i < array.Length; i++)
+	//	{
+	//		for (int j = i + 1; j < array.Length; j++) {
+	//			if (array[i] == array[j])
+	//			{
+	//				break;
+	//			} else
+	//			{
+ //                   array2[i] = array[i];
+ //               }
+	//		}
+	//	}
+
+	//	Console.WriteLine(string.Join(", "), array2);
+	//}
 }
