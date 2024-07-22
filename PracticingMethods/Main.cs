@@ -14,7 +14,7 @@
             //ExtraArrayExercises.ExtraArraysMain();
 
             //For loops exercises
-            ForLoops.ForLoopsMain();
+            Loops.LoopsMain();
          }
     }
 }

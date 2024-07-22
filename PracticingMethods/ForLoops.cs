@@ -1,9 +1,11 @@
 ﻿using System;
 
-public class ForLoops
+public class Loops
 {
-	public static void ForLoopsMain()
+	public static void LoopsMain()
 	{
+		//For loops exercises
+
 		//SumOfEvenNumbers();
 		//ArePrimeNumbers();
 		//IsDivisibleNumbers();
@@ -15,8 +17,16 @@ public class ForLoops
 		//FindingDuplicates();
 		//FindingFirstNegativeNumber();
 		//FindingOddOrEven();
+
+		// While loops exercises
+		//FindingLargestNumber();
+		//FindingValueBetweenNumbers();
+		//FindingLongestSequence();
+		//IsSumOfPairsEven();
+		//ReversePartOfAnArray();
     }
 
+	// For loops
 	public static void SumOfEvenNumbers()
 	{
 		int sum = 0;
@@ -25,7 +35,7 @@ public class ForLoops
 			if (i % 2 == 0)
 			{
 				sum += i;
-            }
+			}
 		}
 		Console.WriteLine(sum);
 	}
@@ -51,9 +61,9 @@ public class ForLoops
 				}
 			}
 
-			if (isPrime) 
-			{ 
-				Console.Write($"{i}, "); 
+			if (isPrime)
+			{
+				Console.Write($"{i}, ");
 			}
 		}
 	}
@@ -86,7 +96,7 @@ public class ForLoops
 
 	public static void CalculatingAverageNumberInArray()
 	{
-		int[] array = {	10, 20, 30, 40, 50 };
+		int[] array = { 10, 20, 30, 40, 50 };
 		int sum = 0;
 
 		for (int i = 0; i < array.Length; i++)
@@ -100,7 +110,7 @@ public class ForLoops
 
 	public static void FindingNegativeNumbers()
 	{
-		int[] array = {-1, 2, -3, 4, -5};
+		int[] array = { -1, 2, -3, 4, -5 };
 		int sum = 0;
 
 		for (int i = 0; i < array.Length; i++)
@@ -129,15 +139,15 @@ public class ForLoops
 			}
 		}
 
-		if ( number == 0)
+		if (number == 0)
 		{
-            Console.Write($"{input} is not in the array");
-        }
+			Console.Write($"{input} is not in the array");
+		}
 	}
 
 	public static void ReverseArray()
 	{
-		int[] array = {1, 2, 3, 4, 5};
+		int[] array = { 1, 2, 3, 4, 5 };
 		int[] array2 = new int[array.Length];
 
 		for (int i = 0; i < array.Length; i++)
@@ -154,9 +164,9 @@ public class ForLoops
 		int[] array = { 1, 2, 2, 3, 4, 4, 5 };
 
 		Console.Write("Dublicates are: ");
-		for (int i = 0; i < array.Length; i++) 
+		for (int i = 0; i < array.Length; i++)
 		{
-			for (int j = i+1; j < array.Length; j++) 
+			for (int j = i + 1; j < array.Length; j++)
 			{
 				if (array[i] == array[j])
 				{
@@ -170,7 +180,7 @@ public class ForLoops
 	{
 		int[] array = { 1, 2, -3, 4, -5 };
 
-		for (int i = 0;i < array.Length; i++)
+		for (int i = 0; i < array.Length; i++)
 		{
 			if (array[i] < 0)
 			{
@@ -182,7 +192,7 @@ public class ForLoops
 
 	public static void FindingOddOrEven()
 	{
-		int[] array = { 1, 2, 3, 4, 5, 6};
+		int[] array = { 1, 2, 3, 4, 5, 6 };
 		int even = 0;
 		int odd = 0;
 
@@ -191,7 +201,8 @@ public class ForLoops
 			if (array[i] % 2 == 0)
 			{
 				even++;
-			} else
+			}
+			else
 			{
 				odd++;
 			}
@@ -200,4 +211,178 @@ public class ForLoops
 		Console.WriteLine($"Even numbers: {even}");
 		Console.WriteLine($"Odd numbers: {odd}");
 	}
+
+	// While loops
+
+	public static void FindingLargestNumber()
+	{
+		int[] array = { 3, 5, 7, 2, 8, -1, 4 };
+		int largestNumber = array[0];
+		int smallestNumber = array[0];
+
+		int i = 0;
+
+		while (i < array.Length)
+		{
+			if (array[i] > largestNumber)
+			{
+				largestNumber = array[i];
+			}
+
+			if (array[i] < smallestNumber)
+			{
+				smallestNumber = array[i];
+			}
+
+			i++;
+		}
+
+		Console.WriteLine($"Largest number is: {largestNumber}");
+		Console.WriteLine($"Smallest number is: {smallestNumber}");
+	}
+
+	public static void FindingValueBetweenNumbers()
+	{
+		int[] array = { 1, 3, 5, 7, 8, 11 };
+		int firstNumber;
+		int secondNumber;
+		int sum = 0;
+
+		Console.WriteLine("Please enter first number: ");
+		while (!int.TryParse(Console.ReadLine(), out firstNumber))
+		{
+			Console.WriteLine("Invalid input.");
+		};
+
+		Console.WriteLine("Please enter first number: ");
+		while (!int.TryParse(Console.ReadLine(), out secondNumber))
+		{
+			Console.WriteLine("Invalid input.");
+		};
+
+		if (firstNumber > secondNumber)
+		{
+			Console.WriteLine("The first number should be less than or equal to second number.");
+		}
+
+		for (int i = 0; i < array.Length; i++)
+		{
+			if (array[i] >= firstNumber && array[i] <= secondNumber)
+			{
+				sum += array[i];
+			}
+		}
+
+		Console.WriteLine($"Sum of numbers between {firstNumber} and {secondNumber} is {sum}");
+	}
+
+	public static void FindingLongestSequence()
+	{
+		int[] array = { 1, 2, 2, 3, 4, 1, 5, 6 };
+		int maxLength = 0;
+		int currentLength = 1;
+		int startIndex = 0;
+		int LongestStartIndex = 0;
+
+		int i = 1;
+
+		while (i < array.Length)
+		{
+			if (array[i] > array[i - 1])
+			{
+				currentLength++;
+			}
+			else
+			{
+				if (currentLength > maxLength)
+				{
+					maxLength = currentLength;
+					LongestStartIndex = startIndex;
+				}
+				currentLength = 1;
+				startIndex = i;
+			}
+			i++;
+		}
+
+		if (currentLength > maxLength) {
+			maxLength = currentLength;
+			LongestStartIndex = startIndex;
+		}
+
+		int[] longestSequence = new int[maxLength];
+		for (i = 0; i < maxLength; i++)
+		{
+			longestSequence[i] = array[LongestStartIndex + i];
+		}
+
+		Console.WriteLine("Longest increasing sequence is: ");
+		Console.WriteLine(string.Join(", ", longestSequence));
+	}
+
+	public static void IsSumOfPairsEven()
+	{
+		int[] array = { 1, 2, 3, 4, 5 };
+
+		for (int i = 0; i < array.Length; i++)
+		{
+			for (int j = i + 1; j < array.Length; j++) {
+				if ((array[i] + array[j]) % 2 == 0)
+				{
+					Console.WriteLine($"{array[i]} {array[j]}");
+				} 
+			}
+		}
+	}
+
+    // I am not sure if I did this correctly, as the task gives example that it should return
+    // [1, 2, 7, 6, 5, 4, 4, 3, 8, 9], but I have [1, 2, 7, 6, 5, 4, 3, 8, 9].
+    public static void ReversePartOfAnArray()
+	{
+		int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+		int[] reversedArray = new int[array.Length];
+		int firstNumber;
+		int secondNumber;
+
+		int i = 0;
+
+        Console.WriteLine("Please enter first number: ");
+        while (!int.TryParse(Console.ReadLine(), out firstNumber))
+        {
+            Console.WriteLine("Invalid input.");
+        };
+
+        Console.WriteLine("Please enter first number: ");
+        while (!int.TryParse(Console.ReadLine(), out secondNumber))
+        {
+            Console.WriteLine("Invalid input.");
+        };
+
+        int maxReverse = secondNumber;
+
+        if (firstNumber > secondNumber)
+        {
+            Console.WriteLine("The first number should be less than or equal to second number.");
+        }
+
+		while (i < array.Length)
+		{
+			if (i >= firstNumber && i <= secondNumber)
+			{
+				reversedArray[i] = array[maxReverse];
+                maxReverse--;
+				if (maxReverse == 0)
+				{
+					break;
+				}
+			} else
+			{
+                reversedArray[i] = array[i];
+
+            }
+			i++;
+        }
+
+		Console.WriteLine(string.Join(", ", reversedArray));
+    }
 }
